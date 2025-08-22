@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package com.jarvis.grpc.service;
+option java_package = "com.jarvis.grpc.service";
+
+service CustomerService {
+  rpc getCustomerInfo (CustomerInfoRequest) returns (CustomerInfoResponse);
+}
+
+message CustomerInfoRequest {
+  string requestId = 1;
+  string requestDateTime = 2;
+  CustomerInfoRequestData data = 3;
+}
+
+message CustomerInfoRequestData {
+  string mobileNumber = 3;
+}
+
+message CustomerInfoResponse {
+  string requestId = 1;
+  string requestDateTime = 2;
+  repeated Account accounts = 3;
+}
+
+message Account {
+  string accountNumber = 1;
+  string accountType = 2;
+  string branchAddress = 3;
+}
