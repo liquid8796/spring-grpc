@@ -5,3 +5,5 @@ spring:
 grpc:
   server:
     port: 3100
+  request:
+    timeout: 75000
