@@ -1,4 +1,4 @@
-package com.jarvis.demo.mapper;
+package com.jarvis.demo.service;
 
 import com.jarvis.grpc.service.CustomerInfoRequest;
 import com.jarvis.grpc.service.CustomerInfoResponse;

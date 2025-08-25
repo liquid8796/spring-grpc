@@ -1,26 +1,28 @@
 package com.jarvis.demo.serviceimpl;
 
 import com.google.gson.Gson;
-import com.jarvis.demo.mapper.CustomerClientService;
+import com.jarvis.demo.service.CustomerClientService;
 import com.jarvis.grpc.service.CustomerInfoRequest;
 import com.jarvis.grpc.service.CustomerInfoResponse;
 import com.jarvis.grpc.service.CustomerServiceGrpc;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
-@Component
+@Service
 @RequiredArgsConstructor
 public class CustomerClientServiceImpl implements CustomerClientService {
     @Value("${grpc.request.timeout}")
     private Long timeout;
 
+    @GrpcClient("customer-grpc")
     private CustomerServiceGrpc.CustomerServiceStub asyncStub;
 
     private final Gson gson;

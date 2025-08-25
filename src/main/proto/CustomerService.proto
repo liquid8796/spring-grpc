@@ -15,13 +15,20 @@ message CustomerInfoRequest {
 }
 
 message CustomerInfoRequestData {
-  string mobileNumber = 3;
+  string mobileNumber = 1;
 }
 
 message CustomerInfoResponse {
   string requestId = 1;
   string requestDateTime = 2;
-  repeated Account accounts = 3;
+  CustomerInfoResponseData data = 3;
+}
+
+message CustomerInfoResponseData {
+  string name = 1;
+  string email = 2;
+  string mobileNumber = 3;
+  repeated Account accounts = 4;
 }
 
 message Account {

@@ -14,9 +14,7 @@ message CustomerRequest {
   Data data = 3;
 
   message Data {
-    string name = 1;
-    string email = 2;
-    string mobileNumber = 3;
+    string mobileNumber = 1;
   }
 }
 
@@ -27,7 +25,10 @@ message CustomerResponse {
 }
 
 message CustomerResponseData {
-  repeated Account accounts = 1;
+  string name = 1;
+  string email = 2;
+  string mobileNumber = 3;
+  repeated Account accounts = 4;
 }
 
 message Account {

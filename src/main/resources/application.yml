@@ -7,3 +7,9 @@ grpc:
     port: 3100
   request:
     timeout: 75000
+  client:
+    customer-grpc:
+      address: 'localhost:3100'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext
